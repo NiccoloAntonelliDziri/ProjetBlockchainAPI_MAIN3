@@ -6,7 +6,7 @@ const { Web3 } = require('web3');
 const web3 = new Web3('https://rpc.sepolia.org/');
 
 // Informations about the contract déployé sur Sepolia
-const contractAddress = '0x4C3d0F4ca88dF1Bcd66B817518F9456967E6BF64';
+const contractAddress = process.env.CONTRACT_ADDRESS;
 const contractABI =
 [
 	{

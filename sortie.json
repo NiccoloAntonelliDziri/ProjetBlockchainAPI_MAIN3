@@ -1,0 +1,425 @@
+{
+    "graph": [
+        {
+            "id": "dataset:my-namespace:données brutes",
+            "type": "DATASET",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "données brutes"
+                },
+                "type": "DB_TABLE",
+                "name": "données brutes",
+                "physicalName": "données brutes",
+                "createdAt": "2024-03-22T09:52:00.001Z",
+                "updatedAt": "2024-03-22T09:54:00.001Z",
+                "namespace": "my-namespace",
+                "sourceName": "default",
+                "fields": [],
+                "tags": [],
+                "lastModifiedAt": null,
+                "description": null,
+                "lastLifecycleState": ""
+            },
+            "inEdges": [],
+            "outEdges": [
+                {
+                    "origin": "dataset:my-namespace:données brutes",
+                    "destination": "job:my-namespace:opération1"
+                },
+                {
+                    "origin": "dataset:my-namespace:données brutes",
+                    "destination": "job:my-namespace:opération2"
+                }
+            ]
+        },
+        {
+            "id": "dataset:my-namespace:données1",
+            "type": "DATASET",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "données1"
+                },
+                "type": "DB_TABLE",
+                "name": "données1",
+                "physicalName": "données1",
+                "createdAt": "2024-03-22T09:52:00.001Z",
+                "updatedAt": "2024-03-22T09:55:00.001Z",
+                "namespace": "my-namespace",
+                "sourceName": "default",
+                "fields": [
+                    {
+                        "name": "a",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    },
+                    {
+                        "name": "b",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    }
+                ],
+                "tags": [],
+                "lastModifiedAt": null,
+                "description": null,
+                "lastLifecycleState": ""
+            },
+            "inEdges": [
+                {
+                    "origin": "job:my-namespace:opération1",
+                    "destination": "dataset:my-namespace:données1"
+                }
+            ],
+            "outEdges": [
+                {
+                    "origin": "dataset:my-namespace:données1",
+                    "destination": "job:my-namespace:opération3"
+                }
+            ]
+        },
+        {
+            "id": "dataset:my-namespace:données2",
+            "type": "DATASET",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "données2"
+                },
+                "type": "DB_TABLE",
+                "name": "données2",
+                "physicalName": "données2",
+                "createdAt": "2024-03-22T09:54:00.001Z",
+                "updatedAt": "2024-03-25T12:36:49.336605Z",
+                "namespace": "my-namespace",
+                "sourceName": "default",
+                "fields": [
+                    {
+                        "name": "a",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    },
+                    {
+                        "name": "b",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    }
+                ],
+                "tags": [],
+                "lastModifiedAt": null,
+                "description": null,
+                "lastLifecycleState": ""
+            },
+            "inEdges": [
+                {
+                    "origin": "job:my-namespace:opération2",
+                    "destination": "dataset:my-namespace:données2"
+                }
+            ],
+            "outEdges": []
+        },
+        {
+            "id": "dataset:my-namespace:données3",
+            "type": "DATASET",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "données3"
+                },
+                "type": "DB_TABLE",
+                "name": "données3",
+                "physicalName": "données3",
+                "createdAt": "2024-03-22T09:55:00.001Z",
+                "updatedAt": "2024-03-25T14:48:25.396450Z",
+                "namespace": "my-namespace",
+                "sourceName": "default",
+                "fields": [
+                    {
+                        "name": "a",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    },
+                    {
+                        "name": "b",
+                        "type": "VARCHAR",
+                        "tags": [],
+                        "description": null
+                    },
+                    {
+                        "name": "c",
+                        "type": "INT",
+                        "tags": [],
+                        "description": null
+                    }
+                ],
+                "tags": [],
+                "lastModifiedAt": null,
+                "description": null,
+                "lastLifecycleState": ""
+            },
+            "inEdges": [
+                {
+                    "origin": "job:my-namespace:opération3",
+                    "destination": "dataset:my-namespace:données3"
+                }
+            ],
+            "outEdges": []
+        },
+        {
+            "id": "job:my-namespace:opération1",
+            "type": "JOB",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "opération1"
+                },
+                "type": "BATCH",
+                "name": "opération1",
+                "simpleName": "opération1",
+                "parentJobName": null,
+                "createdAt": "2024-03-22T09:52:00.001Z",
+                "updatedAt": "2024-03-22T09:52:00.001Z",
+                "namespace": "my-namespace",
+                "inputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données brutes"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données1"
+                    }
+                ],
+                "location": null,
+                "description": null,
+                "latestRun": {
+                    "id": "4edf3ac4-1fad-3b0d-9daa-9dd94226f05f",
+                    "createdAt": "2024-03-22T09:52:00.001Z",
+                    "updatedAt": "2024-03-22T09:52:00.001Z",
+                    "nominalStartTime": null,
+                    "nominalEndTime": null,
+                    "state": "RUNNING",
+                    "startedAt": "2024-03-22T09:52:00.001Z",
+                    "endedAt": "2024-03-22T09:52:00.001Z",
+                    "durationMs": 0,
+                    "args": {},
+                    "jobVersion": {
+                        "namespace": "my-namespace",
+                        "name": "opération1",
+                        "version": "8cbbfeb4-6d76-32bc-87ce-f1e139e4bc82"
+                    },
+                    "inputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données brutes",
+                                "version": "40479493-f920-3e5f-892e-849e324df2b4"
+                            },
+                            "facets": {}
+                        },
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données brutes0",
+                                "version": "e7183295-0bd5-3456-ac0e-a161cba877db"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "outputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données1",
+                                "version": "7122d4ed-ee00-3cfb-8d06-310ab09fded2"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "facets": {}
+                }
+            },
+            "inEdges": [
+                {
+                    "origin": "dataset:my-namespace:données brutes",
+                    "destination": "job:my-namespace:opération1"
+                }
+            ],
+            "outEdges": [
+                {
+                    "origin": "job:my-namespace:opération1",
+                    "destination": "dataset:my-namespace:données1"
+                }
+            ]
+        },
+        {
+            "id": "job:my-namespace:opération2",
+            "type": "JOB",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "opération2"
+                },
+                "type": "BATCH",
+                "name": "opération2",
+                "simpleName": "opération2",
+                "parentJobName": null,
+                "createdAt": "2024-03-22T09:54:00.001Z",
+                "updatedAt": "2024-03-22T09:54:00.001Z",
+                "namespace": "my-namespace",
+                "inputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données brutes"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données2"
+                    }
+                ],
+                "location": null,
+                "description": null,
+                "latestRun": {
+                    "id": "fdd4bfba-3726-3476-b323-2344028c125f",
+                    "createdAt": "2024-03-22T09:54:00.001Z",
+                    "updatedAt": "2024-03-22T09:54:00.001Z",
+                    "nominalStartTime": null,
+                    "nominalEndTime": null,
+                    "state": "COMPLETED",
+                    "startedAt": "2024-03-22T09:54:00.001Z",
+                    "endedAt": "2024-03-22T09:54:00.001Z",
+                    "durationMs": 0,
+                    "args": {},
+                    "jobVersion": {
+                        "namespace": "my-namespace",
+                        "name": "opération2",
+                        "version": "58d30b39-b13d-333e-94f8-66c5d6d5cb65"
+                    },
+                    "inputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données brutes",
+                                "version": "40479493-f920-3e5f-892e-849e324df2b4"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "outputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données2",
+                                "version": "05f79a74-40e7-350f-82f7-64c7826e153e"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "facets": {}
+                }
+            },
+            "inEdges": [
+                {
+                    "origin": "dataset:my-namespace:données brutes",
+                    "destination": "job:my-namespace:opération2"
+                }
+            ],
+            "outEdges": [
+                {
+                    "origin": "job:my-namespace:opération2",
+                    "destination": "dataset:my-namespace:données2"
+                }
+            ]
+        },
+        {
+            "id": "job:my-namespace:opération3",
+            "type": "JOB",
+            "data": {
+                "id": {
+                    "namespace": "my-namespace",
+                    "name": "opération3"
+                },
+                "type": "BATCH",
+                "name": "opération3",
+                "simpleName": "opération3",
+                "parentJobName": null,
+                "createdAt": "2024-03-22T09:55:00.001Z",
+                "updatedAt": "2024-03-22T09:55:00.001Z",
+                "namespace": "my-namespace",
+                "inputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "namespace": "my-namespace",
+                        "name": "données3"
+                    }
+                ],
+                "location": null,
+                "description": null,
+                "latestRun": {
+                    "id": "d46e465b-d358-4d32-83d4-df660ff614dc",
+                    "createdAt": "2024-03-22T09:55:00.001Z",
+                    "updatedAt": "2024-03-22T09:55:00.001Z",
+                    "nominalStartTime": null,
+                    "nominalEndTime": null,
+                    "state": "COMPLETED",
+                    "startedAt": "2024-03-22T09:55:00.001Z",
+                    "endedAt": "2024-03-22T09:55:00.001Z",
+                    "durationMs": 0,
+                    "args": {},
+                    "jobVersion": {
+                        "namespace": "my-namespace",
+                        "name": "opération3",
+                        "version": "380be3df-6f56-390b-9950-abcb8f22fac3"
+                    },
+                    "inputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données1",
+                                "version": "553dfbc1-cb26-3749-9372-2933421bbf9c"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "outputDatasetVersions": [
+                        {
+                            "datasetVersionId": {
+                                "namespace": "my-namespace",
+                                "name": "données3",
+                                "version": "61035d8c-a159-37b4-bcc0-2b7a7e520ddd"
+                            },
+                            "facets": {}
+                        }
+                    ],
+                    "facets": {}
+                }
+            },
+            "inEdges": [
+                {
+                    "origin": "dataset:my-namespace:données1",
+                    "destination": "job:my-namespace:opération3"
+                }
+            ],
+            "outEdges": [
+                {
+                    "origin": "job:my-namespace:opération3",
+                    "destination": "dataset:my-namespace:données3"
+                }
+            ]
+        }
+    ]
+}

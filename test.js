@@ -8,15 +8,8 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
 	}
 	try {
 		
-		postJSON(data);
-
-		// getLastJSON();
-	
-		// fetch('http://localhost:3000/currentJson')
-		// 	.then((response) => response.text())
-		// 	.then((body) => {
-		// 		console.log(JSON.parse(body));
-		//   	});
+		const JSONData = JSON.parse(data);
+		console.log(JSONData.graph[0]);
 
 	}catch (parseError) {
     	console.error('Error parsing JSON: ' + parseError);

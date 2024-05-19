@@ -9,7 +9,7 @@ const pako = require('pako');
 const web3 = new Web3('https://rpc.sepolia.org/');
 
 // Informations about the contract déployé sur Sepolia
-const contractAddress = process.env.CONTRACT_ADDRESS;
+const contractAddress = process.env.CONTRACT_ADDRESS_1;
 const contractABI =
 [
 	{
@@ -128,6 +128,7 @@ async function readJSON(){
 	try{
 		// appeler la méthode JSONfile du contrat pour obtenir la valeur
 		const value = await contract.methods.JSONfile().call();
+		console.log("Value read from contract:", value);
 
 		// Fonction pour convertir une chaîne hexadécimale en chaîne de caractères
 		const fromHexToString = (hexString) =>
@@ -163,12 +164,13 @@ async function writeContract(jsonstring){
 	
 	// compress
 	const compressedDATA = pako.deflate(btoa(JSON.stringify(jsonstring)));
-	// console.log("Compressed string:", compressedDATA);
+	console.log("Compressed string:", compressedDATA);
 
 	const tx = await contract.methods.storeJson(compressedDATA).send({from: userAddress});
-	// console.log("Transaction:", tx);
+	console.log("Transaction:", tx);
 	return tx;
 }
+
 
 // Informations sur la transaction
 async function getTransaction(txHash){
@@ -219,17 +221,17 @@ BigInt.prototype['toJSON'] = function () {
 	return this.toString()
 }
 
-app.post("/test", (req, res) => {
+app.post("/sendJson", (req, res) => {
 	console.log("File received is",req.body);
 
 	// writing to contract
 	writeContract(req.body).then(tx => {
-		// console.log(tx.events);
+		console.log(tx.events);
 		res.json(tx);
 	})
 });
 
- 
+
 app.listen(PORT, () => {
 	console.log("Server listening on port", PORT);
 });
